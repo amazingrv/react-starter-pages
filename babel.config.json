@@ -1,0 +1,29 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": "3.12",
+        "bugfixes": true
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+	],
+	[
+	  "@babel/preset-flow",
+	  {
+		  "allowDeclareFields": true
+	  }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    "react-html-attrs",
+    "lodash"
+  ]
+}
