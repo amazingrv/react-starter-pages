@@ -1,4 +1,4 @@
-# react-starter-pages
+# react-starter-pages [![Node.js CI](https://github.com/amazingrv/react-starter-pages/actions/workflows/node.js.yml/badge.svg)](https://github.com/amazingrv/react-starter-pages/actions/workflows/node.js.yml)
 
 [Live Demo Link](https://amazingrv.github.io/react-starter-pages/)
 
