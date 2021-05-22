@@ -8,6 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   target: 'browserslist',
   output: {
+    publicPath: '/react-starter-pages',
     filename: '[name].[contenthash].js',
   },
   devtool: false,

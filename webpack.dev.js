@@ -5,6 +5,7 @@ module.exports = merge(common, {
   mode: 'development',
   target: 'browserslist',
   output: {
+    publicPath: '/',
     filename: '[name].js',
   },
   devtool: 'source-map',

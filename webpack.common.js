@@ -4,15 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-//   .BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  output: {
-    publicPath: '/',
-  },
   module: {
     rules: [
       {
@@ -70,11 +65,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './src/assets/favicon.ico',
-      minify: false,
     }),
     new MomentLocalesPlugin(),
     new LodashModuleReplacementPlugin(),
     new webpack.ProgressPlugin(),
-    // new BundleAnalyzerPlugin(),
   ],
 };

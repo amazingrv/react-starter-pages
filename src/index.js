@@ -1,9 +1,8 @@
-import './styles.scss';
+import './global.scss';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -14,11 +13,9 @@ const mountNode = document.querySelector('#app');
 
 ReactDOM.render(
   <Provider store={store}>
-    <Suspense fallback={<div>Loading ...</div>}>
-      <Router>
-        <Routes />
-      </Router>
-    </Suspense>
+    <Router>
+      <Routes />
+    </Router>
   </Provider>,
   mountNode
 );

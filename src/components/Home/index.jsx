@@ -1,8 +1,8 @@
-import './Home.scss';
+import './styles.scss';
 
 import { Jumbotron } from 'react-bootstrap';
 import logo from '../../assets/logo.svg';
-import Counter from '../counter/Counter';
+import Counter from '../Counter';
 
 export default function App() {
   const linkContent = [
