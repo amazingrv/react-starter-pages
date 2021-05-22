@@ -8,6 +8,7 @@ import Counter from './components/Counter';
 
 const Routes = () => {
   const location = useLocation();
+
   return (
     <div>
       <Navbar className="mb-2" bg="primary" variant="dark" expand="md">
