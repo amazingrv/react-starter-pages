@@ -2,7 +2,7 @@
 
 [Live Demo Link](https://amazingrv.github.io/react-starter-pages/)
 
-A Simple react starter kit with exposed config and hooks support (for Node version 10.13 and above).
+A Simple react starter kit with exposed config and hooks support (for Node version 12 LTS and above).
 
 Supports client-side routing, ReduxJS, eslint with recommended lint rules, prettier and other best practices supported OOB
 
