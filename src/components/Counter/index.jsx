@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { Button, Form, InputGroup, Spinner } from 'react-bootstrap';
 import {
   decrement,
@@ -19,14 +18,14 @@ const Counter = () => {
   const [incrementAmount, setIncrementAmount] = useState('2');
 
   return (
-    <div>
+    <div className="lead text-center">
       <div className="form-inline justify-content-center">
         <Button
           variant="success"
           size="small"
           onClick={() => dispatch(increment())}
         >
-          <FontAwesomeIcon icon={faPlusCircle} />
+          <FontAwesomeIcon icon={['fas', 'plus-circle']} />
         </Button>
         <div>
           <h2 style={{ minWidth: '120px' }}>{count}</h2>
@@ -36,7 +35,7 @@ const Counter = () => {
           size="small"
           onClick={() => dispatch(decrement())}
         >
-          <FontAwesomeIcon icon={faMinusCircle} />
+          <FontAwesomeIcon icon={['fas', 'minus-circle']} />
         </Button>
       </div>
       <div className="form-inline justify-content-center">

@@ -1,20 +1,33 @@
 import { memo, useEffect, useState } from 'react';
-import { Form } from 'react-bootstrap';
+import axios from 'axios';
+import { Form, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleLeft,
-  faAngleDoubleLeft,
-  faAngleRight,
-  faAngleDoubleRight,
-} from '@fortawesome/free-solid-svg-icons';
+import { BulletList as LoaderIcon } from 'react-content-loader';
 
-function DataTable({ data, columns, idKey }) {
+import { columns, idKey } from './constants';
+
+const DataTable = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const pageSizeOptions = [5, 10, 25, 50];
   const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
   const [items, setItems] = useState([]);
   const [first, setFirst] = useState(0);
   const [current, setCurrent] = useState(0);
   const [last, setLast] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get('https://jsonplaceholder.typicode.com/comments')
+      .then(res => {
+        setLoading(false);
+        setData(res.data.slice(0, 50));
+      })
+      .catch(() => {
+        setLoading(false);
+        setData([]);
+      });
+  }, []);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -171,8 +184,10 @@ function DataTable({ data, columns, idKey }) {
 
   return (
     <div>
-      <div className="table-responsive" style={{ height: '50vh' }}>
-        <table className="table table-bordered table-hover">
+      {loading ? (
+        <LoaderIcon height="300" />
+      ) : (
+        <Table responsive striped hover>
           <thead className="thead-dark">
             <tr>
               {columns.map(i => (
@@ -181,8 +196,8 @@ function DataTable({ data, columns, idKey }) {
             </tr>
           </thead>
           <tbody>{genRowData()}</tbody>
-        </table>
-      </div>
+        </Table>
+      )}
       <div className="d-flex mt-2">
         <div className="d-flex">
           <Form.Control
@@ -210,7 +225,7 @@ function DataTable({ data, columns, idKey }) {
                   onClick={onFirst}
                   disabled={current === first}
                 >
-                  <FontAwesomeIcon icon={faAngleDoubleLeft} />
+                  <FontAwesomeIcon icon="angle-double-left" />
                 </button>
               </li>
               <li
@@ -222,7 +237,7 @@ function DataTable({ data, columns, idKey }) {
                   onClick={onPrevious}
                   disabled={current === first}
                 >
-                  <FontAwesomeIcon icon={faAngleLeft} />
+                  <FontAwesomeIcon icon="angle-left" />
                 </button>
               </li>
               {genPaginationRows()}
@@ -233,7 +248,7 @@ function DataTable({ data, columns, idKey }) {
                   onClick={onNext}
                   disabled={current === last}
                 >
-                  <FontAwesomeIcon icon={faAngleRight} />
+                  <FontAwesomeIcon icon="angle-right" />
                 </button>
               </li>
               <li className={`page-item ${current === last ? 'disabled' : ''}`}>
@@ -243,7 +258,7 @@ function DataTable({ data, columns, idKey }) {
                   onClick={onLast}
                   disabled={current === last}
                 >
-                  <FontAwesomeIcon icon={faAngleDoubleRight} />
+                  <FontAwesomeIcon icon="angle-double-right" />
                 </button>
               </li>
             </ul>
@@ -252,6 +267,6 @@ function DataTable({ data, columns, idKey }) {
       </div>
     </div>
   );
-}
+};
 
 export default memo(DataTable);

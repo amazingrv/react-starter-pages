@@ -1,63 +1,40 @@
-import { useEffect, useState } from 'react';
-import { Link, Route, Switch, withRouter } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Home from './components/Home';
 import DataTable from './components/DataTable';
+import Counter from './components/Counter';
 
-const Routes = ({ location }) => {
-  const [data, setData] = useState([]);
-
-  const columns = [
-    {
-      header: 'Post #',
-      key: 'postId',
-    },
-    {
-      header: 'Name',
-      key: 'name',
-    },
-    {
-      header: 'Email',
-      key: 'email',
-    },
-  ];
-
-  useEffect(() => {
-    axios
-      .get('https://jsonplaceholder.typicode.com/comments')
-      .then(res => setData(res.data.slice(0, 50)))
-      .catch(() => setData([]));
-  }, []);
-
+const Routes = () => {
+  const location = useLocation();
   return (
     <div>
-      <Navbar className="mb-2" bg="light" variant="light" expand="md">
+      <Navbar className="mb-2" bg="primary" variant="dark" expand="md">
         <Container>
           <Link
-            className="navbar-brand"
             replace={location.pathname === '/'}
+            className="navbar-brand"
             to="/"
           >
-            ReactJS
+            <FontAwesomeIcon icon={['fab', 'react']} /> Home
           </Link>
           <Navbar.Toggle />
           <Navbar.Collapse>
             <Nav className="mr-auto">
               <Nav.Item>
                 <Link
+                  replace={location.pathname === '/counter'}
                   className="nav-link"
-                  replace={location.pathname === '/'}
-                  to="/"
+                  to="/counter"
                 >
-                  Home
+                  Counter
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link
-                  className="nav-link"
                   replace={location.pathname === '/table'}
+                  className="nav-link"
                   to="/table"
                 >
                   DataTable
@@ -70,19 +47,8 @@ const Routes = ({ location }) => {
 
       <div className="container">
         <Switch>
-          <Route
-            exact
-            path="/table"
-            render={props => (
-              <DataTable
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...props}
-                data={data}
-                columns={columns}
-                idKey="id"
-              />
-            )}
-          />
+          <Route exact path="/table" component={DataTable} />
+          <Route exact path="/counter" component={Counter} />
           <Route path="/" component={Home} />
         </Switch>
       </div>
@@ -90,4 +56,4 @@ const Routes = ({ location }) => {
   );
 };
 
-export default withRouter(Routes);
+export default Routes;

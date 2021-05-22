@@ -9,6 +9,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store';
 import Routes from './Routes';
 
+import './shared/iconLoader';
+
 const mountNode = document.querySelector('#app');
 
 ReactDOM.render(

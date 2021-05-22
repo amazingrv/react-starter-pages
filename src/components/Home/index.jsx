@@ -2,12 +2,10 @@ import './styles.scss';
 
 import { Jumbotron } from 'react-bootstrap';
 import logo from '../../assets/logo.svg';
-import Counter from '../Counter';
 
 export default function App() {
   const linkContent = [
     { link: 'https://reactjs.org/', text: 'React' },
-    { link: 'https://redux.js.org/', text: 'Redux' },
     { link: 'https://redux-toolkit.js.org/', text: 'Redux Toolkit' },
   ];
 
@@ -37,9 +35,6 @@ export default function App() {
             </a>
           ))}
         </p>
-        <div className="lead">
-          <Counter />
-        </div>
       </Jumbotron>
     </div>
   );
