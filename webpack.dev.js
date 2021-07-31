@@ -3,7 +3,6 @@ const common = require('./webpack.common');
 
 module.exports = merge(common, {
   mode: 'development',
-  target: 'browserslist',
   output: {
     publicPath: '/',
     filename: '[name].js',

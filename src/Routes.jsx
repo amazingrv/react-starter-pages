@@ -13,31 +13,19 @@ const Routes = () => {
     <div>
       <Navbar className="mb-2" bg="primary" variant="dark" expand="md">
         <Container>
-          <Link
-            replace={location.pathname === '/'}
-            className="navbar-brand"
-            to="/"
-          >
+          <Link replace={location.pathname === '/'} className="navbar-brand" to="/">
             <FontAwesomeIcon icon={['fab', 'react']} /> Home
           </Link>
           <Navbar.Toggle />
           <Navbar.Collapse>
             <Nav className="mr-auto">
               <Nav.Item>
-                <Link
-                  replace={location.pathname === '/counter'}
-                  className="nav-link"
-                  to="/counter"
-                >
+                <Link replace={location.pathname === '/counter'} className="nav-link" to="/counter">
                   Counter
                 </Link>
               </Nav.Item>
               <Nav.Item>
-                <Link
-                  replace={location.pathname === '/table'}
-                  className="nav-link"
-                  to="/table"
-                >
+                <Link replace={location.pathname === '/table'} className="nav-link" to="/table">
                   DataTable
                 </Link>
               </Nav.Item>
