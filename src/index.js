@@ -12,13 +12,20 @@ import Routes from './Routes';
 import './shared/iconLoader';
 
 const mountNode = document.querySelector('#app');
+const isProduction = process.env.NODE_ENV === 'production';
 
 ReactDOM.render(
   <Provider store={store}>
-    {/* add base URL for all locations if your app is served from a sub-directory on your server */}
-    <Router basename="/react-starter-pages">
-      <Routes />
-    </Router>
+    {/* add base URL for all locations as app is served from a sub-directory in production */}
+    {isProduction ? (
+      <Router basename="/react-starter-pages">
+        <Routes />
+      </Router>
+    ) : (
+      <Router>
+        <Routes />
+      </Router>
+    )}
   </Provider>,
   mountNode
 );
