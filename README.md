@@ -13,7 +13,6 @@ Currently supported config:
 - babel-preset-env, Core-JS 3 Polyfills and other most used babel plugins
 - webpack asset modules for svg, font and images etc.
 - support for sass preprocessor and css 3, optimized for development and prod builds
-- flow erros support in babel
 - webpack tree-shaking with lodash and moment lib optimizations
 - prod build with minimum size using terser, css optimizer and html minify
 

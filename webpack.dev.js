@@ -11,13 +11,13 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     client: {
-      overlay: false,
+      overlay: true,
     },
     devMiddleware: {
       publicPath: '/',
     },
     port: 9060,
-    open: false,
+    open: true,
     historyApiFallback: true,
     host: 'localhost',
   },
