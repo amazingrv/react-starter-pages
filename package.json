@@ -23,7 +23,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "core-js": "^3.16.0",
+    "core-js": "^3.16.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
@@ -72,7 +72,7 @@
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.47.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^4.0.0-rc.0",
+    "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^5.8.0"
   }
 }
