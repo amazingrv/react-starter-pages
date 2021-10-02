@@ -8,12 +8,12 @@ Supports client-side routing, ReduxJS, eslint with recommended lint rules, prett
 
 Currently supported config:
 
-- exposed configuration for eslint, babel, postcss and webpack
-- browserlist support with autoprefixer using postcss
-- babel-preset-env, Core-JS 3 Polyfills and other most used babel plugins
+- exposed configuration for eslint 7, babel 7, postcss 8 and webpack 5
+- browserlist support with autoprefixer for latest polyfills
+- babel-preset-env for es2020 feature support, Core-JS 3 Polyfills and lodash babel plugin
 - webpack asset modules for svg, font and images etc.
 - support for sass preprocessor and css 3, optimized for development and prod builds
-- webpack tree-shaking with lodash and moment lib optimizations
+- webpack tree-shaking with lodash pure and moment locale optimizations
 - prod build with minimum size using terser, css optimizer and html minify
 
 ## Building and running on localhost

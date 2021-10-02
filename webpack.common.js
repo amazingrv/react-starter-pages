@@ -15,6 +15,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
+          exclude: [
+            /node_modules[\\/]core-js/,
+            /node_modules[\\/]webpack[\\/]buildin/,
+          ],
           cacheDirectory: true,
         },
       },
@@ -22,7 +26,12 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+            },
+          },
           'postcss-loader',
           'sass-loader',
         ],
@@ -61,7 +70,7 @@ module.exports = {
     colors: true,
   },
   plugins: [
-    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true, quiet: true }),
+    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true, quiet: true, threads: true }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './src/assets/favicon.ico',
