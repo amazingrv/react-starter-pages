@@ -15,10 +15,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          exclude: [
-            /node_modules[\\/]core-js/,
-            /node_modules[\\/]webpack[\\/]buildin/,
-          ],
+          exclude: [/node_modules[\\/]core-js/, /node_modules[\\/]webpack[\\/]buildin/],
           cacheDirectory: true,
         },
       },
@@ -27,7 +24,7 @@ module.exports = {
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 2,
             },

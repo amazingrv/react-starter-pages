@@ -1,25 +1,38 @@
 {
   "parser": "@babel/eslint-parser",
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": "off",
-    "no-unused-vars": "warn",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "no-unused-vars": "warn"
   },
   "env": {
     "es2020": true,
     "browser": true,
-    "node": true,
-    "jest": true
+    "node": true
   },
   "parserOptions": {
     "requireConfigFile": false,
     "sourceType": "module"
   },
-  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".json"]
+      }
+    }
   }
 }

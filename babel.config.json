@@ -15,9 +15,5 @@
       }
     ]
   ],
-  "plugins": [
-    "@babel/plugin-proposal-export-default-from",
-    "react-html-attrs",
-    "lodash"
-  ]
+  "plugins": ["@babel/plugin-proposal-export-default-from", "react-html-attrs", "lodash"]
 }
