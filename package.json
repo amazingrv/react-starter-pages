@@ -23,7 +23,7 @@
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.23.0",
     "bootstrap": "^4.6.0",
-    "core-js": "^3.18.3",
+    "core-js": "^3.19.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
