@@ -3,12 +3,11 @@ import './global.scss';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
-import Routes from './Routes';
+import AppRoutes from './Routes';
 
 import './shared/iconLoader';
 
@@ -18,12 +17,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 const basename = isProduction ? '/react-starter-pages' : '/';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Router basename={basename}>
-        <Routes />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter basename={basename}>
+      <AppRoutes />
+    </BrowserRouter>
+  </Provider>,
   mountNode
 );
