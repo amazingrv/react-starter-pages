@@ -20,13 +20,21 @@ const Counter = () => {
   return (
     <div className="lead text-center">
       <div className="form-inline justify-content-center">
-        <Button variant="success" size="small" onClick={() => dispatch(increment())}>
+        <Button
+          variant="success"
+          size="small"
+          onClick={() => dispatch(increment())}
+        >
           <FontAwesomeIcon icon={['fas', 'plus-circle']} />
         </Button>
         <div>
           <h2 style={{ minWidth: '120px' }}>{count}</h2>
         </div>
-        <Button variant="danger" size="small" onClick={() => dispatch(decrement())}>
+        <Button
+          variant="danger"
+          size="small"
+          onClick={() => dispatch(decrement())}
+        >
           <FontAwesomeIcon icon={['fas', 'minus-circle']} />
         </Button>
       </div>
@@ -35,12 +43,14 @@ const Counter = () => {
           <Form.Control
             type="number"
             value={incrementAmount}
-            onChange={(event) => setIncrementAmount(event.target.value)}
+            onChange={event => setIncrementAmount(event.target.value)}
           />
           <InputGroup.Append>
             <Button
               variant="primary"
-              onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}
+              onClick={() =>
+                dispatch(incrementByAmount(Number(incrementAmount) || 0))
+              }
             >
               Add
             </Button>
@@ -48,9 +58,14 @@ const Counter = () => {
           <InputGroup.Append>
             <Button
               variant="primary"
-              onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
+              onClick={() =>
+                dispatch(incrementAsync(Number(incrementAmount) || 0))
+              }
             >
-              Add Async {loading && <Spinner size="sm" animation="border" variant="light" />}
+              Add Async{' '}
+              {loading && (
+                <Spinner size="sm" animation="border" variant="light" />
+              )}
             </Button>
           </InputGroup.Append>
         </InputGroup>

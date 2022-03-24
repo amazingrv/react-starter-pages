@@ -5,8 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
-const devMode = process.env.NODE_ENV !== 'production';
-
 module.exports = {
   module: {
     rules: [
@@ -15,22 +13,20 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          exclude: [/node_modules[\\/]core-js/, /node_modules[\\/]webpack[\\/]buildin/],
           cacheDirectory: true,
         },
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              importLoaders: 1,
             },
           },
           'postcss-loader',
-          'sass-loader',
         ],
       },
       {
@@ -63,11 +59,8 @@ module.exports = {
   performance: {
     hints: false,
   },
-  stats: {
-    colors: true,
-  },
   plugins: [
-    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true, quiet: true, threads: true }),
+    new ESLintPlugin({ extensions: ['js', 'jsx'], fix: true, threads: true }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './src/assets/favicon.ico',
